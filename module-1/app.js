@@ -2,8 +2,7 @@
   'use strict';
 
   angular.module('LunchApp', [])
-
-  .controller("LunchController", LunchController);
+  .controller("LunchController", LunchController)
 
   LunchController.$inject = ['$scope'];
   function LunchController($scope) {
@@ -25,9 +24,7 @@
         $scope.message = "Too much!";
         $scope.fontColor = "text-success";
       }
-
-
     };
-  }
+  };
 
 })();
