@@ -1,6 +1,11 @@
 h1 {
   margin-bottom: 30px;
 }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 input[type="text"] {
   width: 200px;
   float: left;
@@ -9,6 +14,10 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+found-items li {
+  clear:both;
+}
+
 .loader {
   display: none;
   margin-left: 5px;
