@@ -2,9 +2,11 @@ h1 {
   margin-bottom: 30px;
 }
 ul {
+  display: block;
   margin: 0;
   padding: 0;
   list-style: none;
+  clear: both;
 }
 input[type="text"] {
   width: 200px;
@@ -14,8 +16,14 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
-found-items li {
-  clear:both;
+#search-term {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+#nothing-found {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .loader {

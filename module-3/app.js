@@ -29,18 +29,21 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var menu = this;
 
-  menu.items = [];
   menu.searchTerm = "";
+  menu.items = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
 
   menu.updateItems = function () {
     menu.items = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
-    console.log(menu);
   };
 
   menu.removeItem = function(index) {
     menu.items = MenuSearchService.removeItem(index);
-    console.log(menu);
-  }
+  };
+
+  menu.isEmpty = function () {
+    if (menu.items.length === 0) return true;
+    else return false;
+  };
 }
 
 /** Main service **/

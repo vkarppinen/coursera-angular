@@ -1,4 +1,5 @@
 <ul>
+  <div class="loader"></div>
   <li ng-repeat="item in menu.items">
     <dl class="">
       <dt>({{ item.short_name }}) {{ item.name }}</dt>
@@ -7,3 +8,6 @@
     </dl>
   </li>
 </ul>
+<div id="nothing-found" ng-if="menu.isEmpty()">
+  <span>Nothing found.</span>
+</div>
