@@ -11,13 +11,13 @@ angular.module('NarrowItDownApp', [])
 /** foundItemsDirective **/
 function FoundItemsDirective() {
   var ddo = {
+    restrict:'AE',
     templateUrl: 'found-items.html',
     scope: {
       items: '<',
       onRemove: '&'
     },
-    controller: 'NarrowItDownController',
-    controllerAs: 'menu',
+    controller: 'NarrowItDownController as menu',
     bindToController: true
   };
   return ddo;
@@ -28,18 +28,19 @@ function FoundItemsDirective() {
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var menu = this;
-  menu.searchTerm = "";
-  menu.foundItems = [];
 
-  menu.getItems = function () {
-    menu.foundItems = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
+  menu.items = [];
+  menu.searchTerm = "";
+
+  menu.updateItems = function () {
+    menu.items = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
+    console.log(menu);
   };
 
   menu.removeItem = function(index) {
-    console.log(this);
-    menu.foundItems.splice(index, 1);
+    menu.items = MenuSearchService.removeItem(index);
+    console.log(menu);
   }
-
 }
 
 /** Main service **/
@@ -50,7 +51,9 @@ function MenuSearchService($http, ApiPath) {
   var file = "menu_items.json";
   srv.found = [];
 
+  // Get items
   srv.getMatchedMenuItems = function (searchTerm) {
+    srv.found.splice(0, srv.found.length);
     var response = $http({
       method: 'GET',
       url: ApiPath + file
@@ -59,13 +62,22 @@ function MenuSearchService($http, ApiPath) {
     response.then( function(response) {
       var menu_items = response.data.menu_items;
       for (var i=0; i<menu_items.length; i++) {
-        if (menu_items[i].name.indexOf(searchTerm) !== -1) {
+        // ignore case sensitiveness
+        var menu_item = menu_items[i].name.toLowerCase();
+        searchTerm = searchTerm.toLowerCase();
+        if (menu_item.indexOf(searchTerm) !== -1) {
           srv.found.push(menu_items[i]);
         }
       }
     }).catch( function(error) {
-      console.log(error.data);
+      console.log(error);
     });
+    return srv.found;
+  };
+
+  // Remove item
+  srv.removeItem = function (index) {
+    srv.found.splice(index,1);
     return srv.found;
   };
 }

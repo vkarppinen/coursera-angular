@@ -3,7 +3,7 @@
     <dl class="">
       <dt>({{ item.short_name }}) {{ item.name }}</dt>
       <dd>{{ item.description }}</dd>
-      <dd><button ng-click="menu.removeItem($index)" class="btn btn-danger btn-xs">Don't want this one!</button></dd>
+      <dd><button ng-click="menu.removeItem({index: $index})" class="btn btn-danger btn-xs">Don't want this one!</button></dd>
     </dl>
   </li>
 </ul>
