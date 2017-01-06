@@ -9,30 +9,28 @@
   </head>
 <body>
 
-  <div id="main" class="row" ng-controller="MenuController as menu">
-    <div class="col-md-8">
-      <h1>Our menu</h1>
-      <div>Choose a category below that suits you to see menu items available.</div>
+  <div id="main">
 
-      <categories items="menu.categories"></categories>
+    <ui-view></ui-view>
 
-    </div>
   </div>
-
-  <loader></loader>
-
 
   <!-- Libraries  -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
 
   <!-- Modules -->
   <script src="src/menuapp.module.js"></script>
   <script src="src/data.module.js"></script>
 
+  <!-- Routes -->
+  <script src="src/routes.js"></script>
+
   <!-- Controllers, components and services -->
-  <script src="src/loader/loader.controller.js"></script>
   <script src="src/categories/categories.controller.js"></script>
   <script src="src/categories/categories.component.js"></script>
+  <script src="src/items/items.controller.js"></script>
+  <script src="src/items/items.component.js"></script>
 
   <script src="src/menudata.service.js"></script>
 </body>

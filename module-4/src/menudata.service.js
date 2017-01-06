@@ -1,4 +1,4 @@
-angular.module('data', [])
+angular.module('data')
 .service('MenuDataService', MenuDataService)
 .constant('ApiPath',  'https://davids-restaurant.herokuapp.com/')
 
@@ -20,8 +20,12 @@ function MenuDataService($http, ApiPath) {
 
   /* Return all menu items with specific category shortname
      from  https://davids-restaurant.herokuapp.com/menu_items.json?category= */
-  service.getItemsForCategory = function functionName(categoryShortName) {
-
+  service.getItemsForCategory = function(categoryShortName) {
+    var response = $http({
+      method: 'GET',
+      url: ApiPath + "menu_items.json?category=" + categoryShortName
+    });
+    return response;
   };
 
 }
