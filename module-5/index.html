@@ -7,10 +7,15 @@
     <title>David Chu's China Bistro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   </head>
 <body ng-app="restaurant" ng-strict-di>
+
+  <!-- Loading icon on fixed on position. -->
+  <loading class="loading-indicator"></loading>
+
   <header>
     <nav id="header-nav" class="navbar navbar-default">
       <div class="container">
@@ -73,11 +78,7 @@
 
   <div id="main-content" class="container">
 
-    <ui-view>
-      <div class="text-center initial-loading">
-        <h2>Loading site</h2>
-      </div>
-    </ui-view>
+    <ui-view></ui-view>
 
   </div>
 
@@ -113,12 +114,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
 
-  <!-- Modules -->
+  <!-- Main module -->
   <script src="src/restaurant.module.js"></script>
-  <script src="src/public/public.module.js"></script>
 
-  <!-- Public module artifacts -->
+  <!-- Common module -->
+  <script src="src/common/common.module.js"></script>
+  <script src="src/common/loading/loading.component.js"></script>
+  <script src="src/common/loading/loading.interceptor.js"></script>
+
+
+  <!-- Public module -->
+  <script src="src/public/public.module.js"></script>
   <script src="src/public/public.routes.js"></script>
+
+
 
 
 </body>
