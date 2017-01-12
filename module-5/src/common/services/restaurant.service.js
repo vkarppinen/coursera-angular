@@ -16,7 +16,7 @@ function RestaurantService($http, ApiPath) {
   };
 
   service.getCategoryItems = function (categoryShortName) {
-    return $http.get(Apipath + "menu_items.json?category=" + categoryShortName)
+    return $http.get(ApiPath + "menu_items.json?category=" + categoryShortName)
     .then( function (response) {
       return response.data;
     })

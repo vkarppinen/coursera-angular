@@ -28,6 +28,17 @@ function routeCongfig($stateProvider) {
         return RestaurantService.getCategories();
       }]
     }
+  })
+  .state('public.items',{
+    url: "/menu/{category}",
+    templateUrl: "src/public/items/items.html",
+    controller: 'ItemsController',
+    controllerAs: 'ItemsCtrl',
+    resolve: {
+        categoryItems: ['$stateParams','RestaurantService', function ($stateParams, RestaurantService) {
+          return RestaurantService.getCategoryItems($stateParams.category);
+        }]
+      }
   });
 
 }

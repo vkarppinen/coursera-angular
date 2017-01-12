@@ -6,7 +6,8 @@
 </div>
 
 <div ng-repeat="category in menuCtrl.categories" class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
-  <a href="#">
+
+  <a ui-sref="public.items({category: category.short_name})">
     <div class="category-tile">
       <img width="200" height="200" src="images/menu/{{category.short_name}}/{{category.short_name}}.jpg" alt="{{category.name}}">
       <span>{{category.name}}</span>
