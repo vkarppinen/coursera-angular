@@ -17,7 +17,19 @@ function routeCongfig($stateProvider) {
   .state('public.home', {
     url: "/",
     templateUrl: "src/public/home/home.html"
+  })
+  .state('public.menu', {
+    url: "/menu",
+    templateUrl: "src/public/menu/menu.html",
+    controller: 'MenuController',
+    controllerAs: 'menuCtrl',
+    resolve: {
+      categories: ['RestaurantService', function (RestaurantService) {
+        return RestaurantService.getCategories();
+      }]
+    }
   });
+
 }
 
 })();

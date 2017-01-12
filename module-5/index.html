@@ -47,7 +47,7 @@
                 <span class="glyphicon glyphicon-home"></span> Home</a>
             </li>
             <li id="navMenuButton">
-              <a href="#">
+              <a ui-sref="public.menu">
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
@@ -119,6 +119,7 @@
 
   <!-- Common module -->
   <script src="src/common/common.module.js"></script>
+  <script src="src/common/services/restaurant.service.js"></script>
   <script src="src/common/loading/loading.component.js"></script>
   <script src="src/common/loading/loading.interceptor.js"></script>
 
@@ -126,6 +127,10 @@
   <!-- Public module -->
   <script src="src/public/public.module.js"></script>
   <script src="src/public/public.routes.js"></script>
+  <script src="src/public/menu/menu.controller.js"></script>
+  <script src="src/public/menu/menu.component.js"></script>
+
+
 
 
 
