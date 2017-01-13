@@ -1,0 +1,8 @@
+<h2 id="menu-categories-title" class="text-center">{{ItemsCtrl.category.name }} Menu</h2>
+<div class="text-center">{{ItemsCtrl.category.special_instructions}}</div>
+
+<category-item
+  ng-repeat="categoryItem in ItemsCtrl.items"
+  category="ItemsCtrl.category"
+  item="categoryItem">
+</category-item>

@@ -31,7 +31,7 @@ function routeCongfig($stateProvider) {
   })
   .state('public.items',{
     url: "/menu/{category}",
-    templateUrl: "src/public/items/items.html",
+    templateUrl: "src/public/category-items/category-items.html",
     controller: 'ItemsController',
     controllerAs: 'ItemsCtrl',
     resolve: {

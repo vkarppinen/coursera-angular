@@ -7,7 +7,7 @@ controller('ItemsController', ItemsController);
 ItemsController.$inject = ['categoryItems'];
 function ItemsController(categoryItems) {
   var $ctrl = this;
-  $ctrl.category = categoryItems;
+  $ctrl.category = categoryItems.category;
   $ctrl.items = categoryItems.menu_items;
 }
 
