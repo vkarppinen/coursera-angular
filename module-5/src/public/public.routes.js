@@ -14,10 +14,14 @@ function routeCongfig($stateProvider) {
     abstract: true,
     templateUrl: 'src/public/public.html'
   })
+
+  // Home state
   .state('public.home', {
     url: "/",
     templateUrl: "src/public/home/home.html"
   })
+
+  // Menu categories state
   .state('public.menu', {
     url: "/menu",
     templateUrl: "src/public/menu/menu.html",
@@ -29,6 +33,8 @@ function routeCongfig($stateProvider) {
       }]
     }
   })
+
+  // Menu category items state
   .state('public.items',{
     url: "/menu/{category}",
     templateUrl: "src/public/category-items/category-items.html",
@@ -39,7 +45,14 @@ function routeCongfig($stateProvider) {
           return RestaurantService.getCategoryItems($stateParams.category);
         }]
       }
+  })
+
+  // Signup state
+  .state('public.signup', {
+    url: "/signup",
+    templateUrl: "src/public/signup/signup.html"
   });
+
 
 }
 

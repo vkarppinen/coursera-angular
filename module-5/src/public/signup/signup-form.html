@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-md-6">
+
+    <form name='newsLetterForm' novalidate>
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        ng-model="$ctrl.user.name"
+        required>
+      {{$ctrl.user.name}}
+      <br>
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        ng-model="$ctrl.user.email"
+        required>
+      {{$ctrl.user.email}}
+      <br>
+
+      <input
+        type="text"
+        name="phone"
+        placeholder="Phone number"
+        ng-model="$ctrl.user.phone"
+        required>
+      <br>
+
+      <input
+        type="text"
+        name="favorite-dish"
+        placeholder="What is your favorite dish? (Type the short name)"
+        ng-model="$ctrl.user.dish">
+      <br>
+      <span ng-if="$ctrl.dishNotFound">No such menu number exists</span>
+
+      <input
+        type="submit"
+        value="Submit"
+        ng-disabled="newsLetterForm.$invalid"
+        ng-click="$ctrl.submit()">
+
+    </form>
+  </div>
+</div>
