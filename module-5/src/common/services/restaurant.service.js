@@ -21,6 +21,11 @@ function RestaurantService($http, ApiPath) {
       return response.data;
     })
   };
+
+  service.getMenuItem = function (categoryShortName) {
+    return $http.get(ApiPath + "menu_items/" + categoryShortName + ".json");
+  };
+
 }
 
 })();
