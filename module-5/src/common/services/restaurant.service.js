@@ -23,7 +23,19 @@ function RestaurantService($http, ApiPath) {
   };
 
   service.getMenuItem = function (categoryShortName) {
-    return $http.get(ApiPath + "menu_items/" + categoryShortName + ".json");
+    var promise = $http.get(ApiPath + "menu_items/" + categoryShortName + ".json");
+
+    promise.then(
+      function (success) {
+        // console.log(success);
+        var dishNotFound = false;
+        return dishNotFound;
+      },
+      function (error) {
+        // console.log(error);
+        var dishNotFound = true;
+        return dishNotFound;
+      });
   };
 
 }

@@ -8,23 +8,22 @@ angular.module('public')
 SignUpController.$inject = ['RestaurantService']
 function SignUpController(RestaurantService) {
   var $ctrl = this;
+  $ctrl.user = {};
 
   $ctrl.submit = function functionName() {
 
     // Check whether user chosen dish is found.
-    var promise = RestaurantService.getMenuItem($ctrl.user.dish);
+    $ctrl.dishNotFound = RestaurantService.getMenuItem($ctrl.user.dish);
 
-    promise.then(
-      function (success) {
-        // console.log(success);
-        $ctrl.dishNotFound = false;
-      },
-      function (error) {
-        // console.log(error);
-        $ctrl.dishNotFound = true;
-      });
+    if ($ctrl.dishNotFound) {
+      // return some error.
+      return "Error, the dish is not found.";
+    }
+    else {
+      return "Oh yeah! That is a good meal.";
+      // $ctrl.addUserToMailingList();
+    }
 
-    console.log("The user object can be added to mailing-list:", $ctrl.user);
   };
 
 }
